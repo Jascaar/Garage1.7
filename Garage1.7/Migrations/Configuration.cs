@@ -22,7 +22,7 @@ namespace Garage1._7.Migrations
             //  to avoid creating duplicate seed data.
 
             context.Garage.AddOrUpdate(e => e.Id,
-               new Models.ParkedVehicle { Id = 1, ParkingSlot = 1, TypeOfVehicle = Models.TypeOfVehicle.Car, VehicleRegistrationNumber = "s", Color = ConsoleColor.Blue, TiresOnVehicle= 4, StartParking = DateTime.Now}
+               new Models.ParkedVehicle { Id = 1, ParkingSlot = 1, TypeOfVehicle = Models.TypeOfVehicle.Car, VehicleBrand = "Volvo", VehicleRegistrationNumber = "s", Color = ConsoleColor.Blue, TiresOnVehicle= 4, StartParking = DateTime.Now}
 
 
               );

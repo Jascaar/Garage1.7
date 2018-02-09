@@ -22,6 +22,8 @@ namespace Garage1._7.Models
         public string VehicleRegistrationNumber { get; set; }
         [DisplayName("Brand")]
         public string VehicleBrand { get; set; }
+        [DisplayName("Model")]
+        public string VehicleModel { get; set; }
         [DisplayName("Color")]
         public ConsoleColor Color { get; set; }
         [DisplayName("Number of wheels")]
