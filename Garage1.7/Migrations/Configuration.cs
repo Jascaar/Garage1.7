@@ -27,6 +27,7 @@ namespace Garage1._7.Migrations
 
               );
 
+            //Add disposal class
 
         }
     }
