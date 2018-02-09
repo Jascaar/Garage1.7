@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201802091301138_Garage.Designer.cs">
       <DependentUpon>201802091301138_Garage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802091529232_garage2.cs" />
+    <Compile Include="Migrations\201802091529232_garage2.Designer.cs">
+      <DependentUpon>201802091529232_garage2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -221,6 +225,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802091301138_Garage.resx">
       <DependentUpon>201802091301138_Garage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802091529232_garage2.resx">
+      <DependentUpon>201802091529232_garage2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
