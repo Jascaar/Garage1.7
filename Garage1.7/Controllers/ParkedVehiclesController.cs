@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Garage1._7.DataAcessLayer;
 using Garage1._7.Models;
@@ -16,11 +13,20 @@ namespace Garage1._7.Controllers
         private RegisterVehicleContext db = new RegisterVehicleContext();
 
         // GET: ParkedVehicles
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search)
         {
 
-            var model = db.Garage .OrderBy (e => e.TypeOfVehicle);
-            return View(model.ToList());
+            if (searchBy == "TypeOfVehicle")
+            {
+                return View(db.Garage.Where(v => v.TypeOfVehicle.ToString() == search || search == null).ToList());
+            }
+               else
+            { 
+                    return View(db.Garage.Where(v => v.VehicleRegistrationNumber.StartsWith(search) || search == null).ToList());
+
+            }
+
+            //return View(model.ToList());
         }
 
         // GET: ParkedVehicles/Details/5

@@ -6,6 +6,16 @@
 
 <h2>Index</h2>
 
+
+
+<form method="get">
+    <b>@Html.RadioButton("searchBy", "TypeOfVehicle", true) <text>Typ av fordon</text></b>
+    <b>@Html.RadioButton("searchBy", "VehicleRegistrationNumber") <text>Registreringsnummer</text></b>
+    <br />
+    @Html.TextBox("search")<input type="submit" value="Search" />
+
+</form>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -32,10 +42,21 @@
         <th>
             @Html.DisplayNameFor(model => model.StartParking)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="8"> No rows match search criteria! Try to make a new search.</td>
+        </tr>
+    }
+    else
+    {
+
+  
+
+ foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ParkingSlot)
@@ -65,5 +86,5 @@
         </td>
     </tr>
 }
-
+    }
 </table>
