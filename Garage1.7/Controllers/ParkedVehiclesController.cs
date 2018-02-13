@@ -25,7 +25,7 @@ namespace Garage1._7.Controllers
         public ActionResult Index(string searchBy, string search, int? page)
         {
 
-            var vehicles = db.Garage.AsQueryable();
+            var vehicles = db.Garage.OrderBy(v => v.ParkingSlot).AsQueryable();
 
             if (searchBy == "TypeOfVehicle")
             {
