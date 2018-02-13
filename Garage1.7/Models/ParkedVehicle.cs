@@ -36,7 +36,7 @@ namespace Garage1._7.Models
             set
             {
                 value = value.ToUpper().Trim().Replace(" ", "").Replace("-", "");
-                vehicleRegistrationNumber = value.Substring(0,3)+" "+value.Substring(3,3);
+                vehicleRegistrationNumber = value.Substring(0, 3) + " " + value.Substring(3, 3);
             }
         }
         [DisplayName("Brand")]
@@ -83,7 +83,7 @@ namespace Garage1._7.Models
             if (value == null) return new ValidationResult("Required field");
 
             string compare = ((string)value).ToUpper().Trim().Replace(" ", "").Replace("-", "");
-            if (compare.Length!=6) return new ValidationResult("Not a valid Swedish vehicle registration number");
+            if (compare.Length != 6) return new ValidationResult("Not a valid Swedish vehicle registration number");
             Regex regex = new Regex(@"[A-Z]{3}[0-9]{3}");
 
             if (regex.IsMatch(compare))
@@ -209,9 +209,4 @@ namespace Garage1._7.Models
 
 
 }
-
-
-
-
-
 
