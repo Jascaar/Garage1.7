@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Garage1._7.DataAcessLayer;
 using Garage1._7.Models;
-using System.Collections.Generic;
 using PagedList;
 using PagedList.Mvc;
 
@@ -129,8 +128,8 @@ namespace Garage1._7.Controllers
 
             // Ajax Action Methods
 
-            var model = db.Garage .OrderBy (e => e.TypeOfVehicle);
-            return View(model.ToList());
+  //          var model = db.Garage .OrderBy (e => e.TypeOfVehicle);
+    //        return View(model.ToList());
         }
 
         //public PartialViewResult All(int? page)
