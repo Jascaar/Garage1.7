@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Garage1._7.Models
 {
@@ -11,11 +12,13 @@ namespace Garage1._7.Models
     {
         // enum clas
 
-
+       
         public int Id { get; set; }
+        
         public int ParkingSlot { get; set; }
 
         [DisplayName("Vehicle type")]
+        //[Range(1, int.MaxValue, ErrorMessage = "Select type of vehicle to search")]
         public TypeOfVehicle TypeOfVehicle { get; set; }
         [DisplayName("Registration number")]
         //regex validation
@@ -34,12 +37,12 @@ namespace Garage1._7.Models
     }
     public enum TypeOfVehicle
     {
-        Car = 0,
-        Motorcycle = 1,
-        Bus = 2,
-        Boat = 3,
-        Airplane = 4,
-        Bicycle = 5
+        Car,
+        Motorcycle,
+        Bus,
+        Boat ,
+        Airplane,
+        Bicycle 
 
     }
 
