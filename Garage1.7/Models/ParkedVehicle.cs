@@ -16,7 +16,6 @@ namespace Garage1._7.Models
     {
 
 
-
         public int Id { get; set; }
 
         [Range(1, 100, ErrorMessage = "Not a valid parking slot. Please choose a free slot between 1 and 100")]

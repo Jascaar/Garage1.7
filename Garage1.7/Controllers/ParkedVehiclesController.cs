@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using Garage1._7.DataAcessLayer;
 using Garage1._7.Models;
+using System.Collections.Generic;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Garage1._7.Controllers
 {
@@ -18,16 +21,52 @@ namespace Garage1._7.Controllers
 
         private RegisterVehicleContext db = new RegisterVehicleContext();
 
-        
         // GET: ParkedVehicles
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search, int? page)
         {
-            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
-            ViewBag.Capacity = Capacity;
 
-            var model = db.Garage .OrderBy (e => e.ParkingSlot);
+            var vehicles = db.Garage.AsQueryable();
+
+            if (searchBy == "TypeOfVehicle")
+            {
+                // listsearch
+                return View(db.Garage.Where(v => v.TypeOfVehicle.ToString().StartsWith(search) 
+                || search == null).ToList().ToPagedList(page ?? 1,3));
+            }
+            else if (searchBy == "VehicleRegistrationNumber")
+            {
+                return View(db.Garage.Where(v => v.VehicleRegistrationNumber.StartsWith(search) 
+                || search == null).ToList().ToPagedList(page ?? 1,3));
+            }
+            else if (searchBy == "VehicleBrand")
+            {
+                return View(db.Garage.Where(v => v.VehicleBrand.StartsWith(search) 
+                || search == null).ToList().ToPagedList(page ?? 1,3));
+            }
+            else
+                return View(vehicles.ToList().ToPagedList(page ?? 1,3));
+
+            // Dropdown searchfunction
+
+            // https://www.youtube.com/watch?v=srN56uxw76s
+
+            //SerchString for Paging
+
+
+            // Ajax Action Methods
+
+            var model = db.Garage .OrderBy (e => e.TypeOfVehicle);
             return View(model.ToList());
         }
+
+        //public PartialViewResult All(int? page)
+        //{
+        //    List<ParkedVehicle> model = db.Garage.ToList();
+
+        //    model.ToPagedList(page ?? 1, 10);
+
+        //    return PartialView("Index", model);
+        //}
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
