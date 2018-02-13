@@ -22,29 +22,103 @@ namespace Garage1._7.Controllers
         private RegisterVehicleContext db = new RegisterVehicleContext();
 
         // GET: ParkedVehicles
-        public ActionResult Index(string searchBy, string search, int? page)
+        public ActionResult Index(string searchBy, string search, int? page, string sortOrder)
         {
+            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Capacity = Capacity;
+            
+
+            ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "ParkingSlot_desc" : "ParkingSlot";
+            ViewBag.ParkingSlotSortParm = sortOrder == "ParkingSlot" ? "ParkingSlot_desc" : "ParkingSlot";
+            ViewBag.TypeOfVehicleSortParm = sortOrder == "TypeOfVehicle" ? "TypeOfVehicle_desc" : "TypeOfVehicle";
+            ViewBag.VehicleRegistrationNumberSortParm = sortOrder == "VehicleRegistrationNumber" ? "VehicleRegistrationNumber_desc" : "VehicleRegistrationNumber";
+            ViewBag.VehicleBrandSortParm = sortOrder == "VehicleBrand" ? "VehicleBrand_desc" : "VehicleBrand";
+            ViewBag.VehicleModelSortParm = sortOrder == "VehicleModel" ? "VehicleModel_desc" : "VehicleModel";
+            ViewBag.ColorSortParm = sortOrder == "Color" ? "Color_desc" : "Color";
+            ViewBag.TiresOnVehicleSortParm = sortOrder == "TiresOnVehicle" ? "TiresOnVehicle_desc" : "TiresOnVehicle";
+            ViewBag.StartParkingSortParm = sortOrder == "StartParking" ? "StartParking_desc" : "StartParking";
 
             var vehicles = db.Garage.OrderBy(v => v.ParkingSlot).AsQueryable();
+
+            
 
             if (searchBy == "TypeOfVehicle")
             {
                 // listsearch
-                return View(db.Garage.Where(v => v.TypeOfVehicle.ToString().StartsWith(search) 
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicle.ToString().StartsWith(search)
                 || search == null).ToList().ToPagedList(page ?? 1,3));
             }
             else if (searchBy == "VehicleRegistrationNumber")
             {
-                return View(db.Garage.Where(v => v.VehicleRegistrationNumber.StartsWith(search) 
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleRegistrationNumber.StartsWith(search) 
                 || search == null).ToList().ToPagedList(page ?? 1,3));
             }
             else if (searchBy == "VehicleBrand")
             {
-                return View(db.Garage.Where(v => v.VehicleBrand.StartsWith(search) 
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleBrand.StartsWith(search) 
                 || search == null).ToList().ToPagedList(page ?? 1,3));
             }
             else
-                return View(vehicles.ToList().ToPagedList(page ?? 1,3));
+            { 
+            switch (sortOrder)
+            {
+                case "ParkingSlot_desc":
+                    vehicles = vehicles.OrderByDescending(s => s.ParkingSlot);
+                    break;
+                case "ParkingSlot":
+                    vehicles = vehicles.OrderBy(s => s.ParkingSlot);
+                    break;
+                    case "VehicleRegistrationNumber_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.VehicleRegistrationNumber);
+                        break;
+                    case "VehicleRegistrationNumber":
+                        vehicles = vehicles.OrderBy(s => s.VehicleRegistrationNumber);
+                        break;
+
+                case "TypeOfVehicle_desc":
+                    vehicles = vehicles.OrderByDescending(s => s.TypeOfVehicle);
+                    break;
+                case "TypeOfVehicle":
+                    vehicles = vehicles.OrderBy(s => s.TypeOfVehicle);
+                    break;
+                    case "VehicleBrand_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.VehicleBrand);
+                        break;
+                    case "VehicleBrand":
+                        vehicles = vehicles.OrderBy(s => s.VehicleBrand);
+                        break;
+                    case "VehicleModel_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.VehicleModel);
+                        break;
+                    case "VehicleModel":
+                        vehicles = vehicles.OrderBy(s => s.VehicleModel);
+                        break;
+                    case "Color_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.Color);
+                        break;
+                    case "Color":
+                        vehicles = vehicles.OrderBy(s => s.Color);
+                        break;
+                    case "TiresOnVehicle_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.TiresOnVehicle);
+                        break;
+                    case "TiresOnVehicle":
+                        vehicles = vehicles.OrderBy(s => s.TiresOnVehicle);
+                        break;
+                    case "StartParking_desc":
+                        vehicles = vehicles.OrderByDescending(s => s.StartParking);
+                        break;
+                    case "StartParking":
+                        vehicles = vehicles.OrderBy(s => s.TiresOnVehicle);
+                        break;
+                        
+                    default:
+                    vehicles = vehicles.OrderBy(s => s.ParkingSlot);
+                    break;
+            }
+
+            return View(vehicles.ToList().ToPagedList(page ?? 1,3));
+            }
 
             // Dropdown searchfunction
 
