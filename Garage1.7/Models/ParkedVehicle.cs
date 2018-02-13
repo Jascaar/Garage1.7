@@ -37,7 +37,7 @@ namespace Garage1._7.Models
             set
             {
                 value = value.ToUpper().Trim().Replace(" ", "").Replace("-", "");
-                vehicleRegistrationNumber = value;
+                vehicleRegistrationNumber = value.Substring(0,3)+" "+value.Substring(3,3);
             }
         }
         [DisplayName("Brand")]

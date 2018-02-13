@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201802130922036_parkingSlot7.Designer.cs">
       <DependentUpon>201802130922036_parkingSlot7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802131214174_Rnr1.cs" />
+    <Compile Include="Migrations\201802131214174_Rnr1.Designer.cs">
+      <DependentUpon>201802131214174_Rnr1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802131217169_Rnr2.cs" />
+    <Compile Include="Migrations\201802131217169_Rnr2.Designer.cs">
+      <DependentUpon>201802131217169_Rnr2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802130922036_parkingSlot7.resx">
       <DependentUpon>201802130922036_parkingSlot7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131214174_Rnr1.resx">
+      <DependentUpon>201802131214174_Rnr1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802131217169_Rnr2.resx">
+      <DependentUpon>201802131217169_Rnr2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
