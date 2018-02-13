@@ -13,13 +13,19 @@ namespace Garage1._7.Controllers
 {
     public class ParkedVehiclesController : Controller
     {
+
+        public static int Capacity = 10;
+
         private RegisterVehicleContext db = new RegisterVehicleContext();
 
+        
         // GET: ParkedVehicles
         public ActionResult Index()
         {
+            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Capacity = Capacity;
 
-            var model = db.Garage .OrderBy (e => e.TypeOfVehicle);
+            var model = db.Garage .OrderBy (e => e.ParkingSlot);
             return View(model.ToList());
         }
 
@@ -41,7 +47,32 @@ namespace Garage1._7.Controllers
         // GET: ParkedVehicles/Create
         public ActionResult Create()
         {
-            return View();
+
+            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Capacity = Capacity;
+
+            var model = db.Garage.OrderBy(db => db.ParkingSlot);
+            var usedSlots = model.Where(db => (db.ParkingSlot > 0));
+            int tester1 = 0;
+            int tester2 = 0;
+            int tester3 = 0;
+            ViewBag.FreeSlot = 0;
+            foreach (var item in usedSlots)
+            {
+                tester2 = item.ParkingSlot;
+                if (tester2 - tester1 > 1)
+                {
+                    ViewBag.FreeSlot = tester2-1;
+                    break; }
+                tester1++;
+                tester3 = item.ParkingSlot;
+            }
+            if (ViewBag.FreeSlot == 0 && tester3 < Capacity)
+                     ViewBag.FreeSlot = tester3 + 1;
+            var model2 = new ParkedVehicle { ParkingSlot = ViewBag.FreeSlot };
+            
+
+            return View(model2);
         }
 
         // POST: ParkedVehicles/Create
@@ -49,7 +80,7 @@ namespace Garage1._7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ParkingSlot,TypeOfVehicle,VehicleRegistrationNumber,VehicleBrand,Color,TiresOnVehicle,StartParking")] ParkedVehicle parkedVehicle)
+        public ActionResult Create([Bind(Include = "Id,ParkingSlot,TypeOfVehicle,VehicleRegistrationNumber,VehicleBrand,VehicleModel,Color,TiresOnVehicle,StartParking")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +88,31 @@ namespace Garage1._7.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+
+            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Capacity = Capacity;
+
+            var model = db.Garage.OrderBy(db => db.ParkingSlot);
+            var usedSlots = model.Where(db => (db.ParkingSlot > 0));
+            int tester1 = 0;
+            int tester2 = 0;
+            int tester3 = 0;
+            ViewBag.FreeSlot = 0;
+            foreach (var item in usedSlots)
+            {
+                tester2 = item.ParkingSlot;
+                if (tester2 - tester1 > 1)
+                {
+                    ViewBag.FreeSlot = tester2 - 1;
+                    break;
+                }
+                tester1++;
+                tester3 = item.ParkingSlot;
+            }
+            if (ViewBag.FreeSlot == 0 && tester3 < Capacity)
+                ViewBag.FreeSlot = tester3 + 1;
+            var model2 = new ParkedVehicle { ParkingSlot = ViewBag.FreeSlot };
 
             return View(parkedVehicle);
         }
@@ -81,7 +137,7 @@ namespace Garage1._7.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ParkingSlot,TypeOfVehicle,VehicleRegistrationNumber,VehicleBrand,Color,TiresOnVehicle,StartParking")] ParkedVehicle parkedVehicle)
+        public ActionResult Edit([Bind(Include = "Id,ParkingSlot,TypeOfVehicle,VehicleRegistrationNumber,VehicleBrand,VehicleModel,Color,TiresOnVehicle,StartParking")] ParkedVehicle parkedVehicle)
         {
             if (ModelState.IsValid)
             {
