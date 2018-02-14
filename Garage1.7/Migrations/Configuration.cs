@@ -23,7 +23,6 @@ namespace Garage1._7.Migrations
 
             context.Garage.AddOrUpdate(e => e.Id,
                new Models.ParkedVehicle {
-                   Id = 1,
                    ParkingSlot = 1,
                    TypeOfVehicle = Models.TypeOfVehicle.Car,
                    VehicleBrand = "Volvo",
@@ -34,7 +33,6 @@ namespace Garage1._7.Migrations
                    StartParking = DateTime.Now},
 
                 new Models.ParkedVehicle {
-                    Id = 2,
                     ParkingSlot = 2,
                     TypeOfVehicle = Models.TypeOfVehicle.Car,
                     VehicleBrand = "Volkswagen",
@@ -45,26 +43,60 @@ namespace Garage1._7.Migrations
                     StartParking = DateTime.Now },
 
                 new Models.ParkedVehicle {
-                    Id = 3,
                     ParkingSlot = 3,
                     TypeOfVehicle = Models.TypeOfVehicle.Car,
                     VehicleBrand = "Opel",
-                    VehicleModel = "Amazon",
-                    VehicleRegistrationNumber = "KGB 359",
+                    VehicleModel = "Opera",
+                    VehicleRegistrationNumber = "DER 359",
                     Color = ConsoleColor.Yellow,
                     TiresOnVehicle = 4,
                     StartParking = DateTime.Now },
 
                 new Models.ParkedVehicle {
-                    Id = 4,
                     ParkingSlot = 4,
                     TypeOfVehicle = Models.TypeOfVehicle.Car,
                     VehicleBrand = "Audi",
-                    VehicleModel = "Amazon",
-                    VehicleRegistrationNumber = "KIN 088 ",
+                    VehicleModel = "Fredag",
+                    VehicleRegistrationNumber = "FRE 088 ",
+                    Color = ConsoleColor.Blue,
+                    TiresOnVehicle = 4,
+                    StartParking = DateTime.Now },
+
+                new Models.ParkedVehicle
+                {
+                    ParkingSlot = 5,
+                    TypeOfVehicle = Models.TypeOfVehicle.Car,
+                    VehicleBrand = "Audi",
+                    VehicleModel = "Corolla",
+                    VehicleRegistrationNumber = "KIN 092 ",
                     Color = ConsoleColor.Green,
                     TiresOnVehicle = 4,
-                    StartParking = DateTime.Now }
+                    StartParking = DateTime.Now
+                },
+
+                new Models.ParkedVehicle
+                {
+                    ParkingSlot = 6,
+                    TypeOfVehicle = Models.TypeOfVehicle.Boat,
+                    VehicleBrand = "Volvo",
+                    VehicleModel = "Penta",
+                    VehicleRegistrationNumber = "KIN 091 ",
+                    Color = ConsoleColor.Green,
+                    TiresOnVehicle = 0,
+                    StartParking = DateTime.Now
+                },
+
+                new Models.ParkedVehicle
+                {
+                    ParkingSlot = 7,
+                    TypeOfVehicle = Models.TypeOfVehicle.Car,
+                    VehicleBrand = "Audi",
+                    VehicleModel = "Amazon",
+                    VehicleRegistrationNumber = "KIN 090 ",
+                    Color = ConsoleColor.Green,
+                    TiresOnVehicle = 4,
+                    StartParking = DateTime.Now
+                }
 
 
               );

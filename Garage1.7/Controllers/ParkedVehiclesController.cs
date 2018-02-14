@@ -20,22 +20,8 @@ namespace Garage1._7.Controllers
     public class ParkedVehiclesController : Controller
     {
 
-        public static int Capacity = 10;
+        public static int Capacity = 35;
         private RegisterVehicleContext db = new RegisterVehicleContext();
-
-
-        public static float DoubleToFloat(double dValue)
-        {
-            if (float.IsPositiveInfinity(Convert.ToSingle(dValue)))
-            {
-                return float.MaxValue;
-            }
-            if (float.IsNegativeInfinity(Convert.ToSingle(dValue)))
-            {
-                return float.MinValue;
-            }
-            return Convert.ToSingle(dValue);
-        }
 
         public ActionResult Summary()
         {
@@ -52,6 +38,12 @@ namespace Garage1._7.Controllers
                                 ParkingTime = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)),
                                 AccumulatedRevenue = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)*2)
                             }).ToList();
+
+
+
+            ;
+
+
 
 
             return View(model);
@@ -97,17 +89,17 @@ namespace Garage1._7.Controllers
             {
                 // listsearch
                 return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicle.ToString().StartsWith(search)
-                || search == null).ToList().ToPagedList(page ?? 1,3));
+                || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else if (searchBy == "VehicleRegistrationNumber")
             {
                 return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleRegistrationNumber.StartsWith(search) 
-                || search == null).ToList().ToPagedList(page ?? 1,3));
+                || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else if (searchBy == "VehicleBrand")
             {
                 return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleBrand.StartsWith(search) 
-                || search == null).ToList().ToPagedList(page ?? 1,3));
+                || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else
             { 
@@ -168,7 +160,7 @@ namespace Garage1._7.Controllers
                     break;
             }
 
-            return View(vehicles.ToList().ToPagedList(page ?? 1,3));
+            return View(vehicles.ToList().ToPagedList(page ?? 1,10));
             }
 
             // Dropdown searchfunction
