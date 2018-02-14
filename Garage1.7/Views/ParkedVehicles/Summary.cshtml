@@ -23,11 +23,7 @@
         <th>
             @Html.DisplayNameFor(model => model.AccumulatedRevenue)
         </th>
-        <th>
-            <b>Total        </b>
-        </th>
-        <th></th>
-    </tr>
+     </tr>
 
     @foreach (var item in Model)
     {
@@ -50,29 +46,6 @@
             </td>
         </tr>
     }
-    <tr>
-        <td>
-
-            @Html.DisplayFor(model => model.getSubTotal(Count))
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Count)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SumTires)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkingTime) Minutes
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccumulatedRevenue) SEK
-        </td>
-    </tr>
-
-
-
-
-
 
 </table>
 

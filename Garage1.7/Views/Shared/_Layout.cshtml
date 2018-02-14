@@ -22,7 +22,6 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Parked vehicles", "Index", "ParkedVehicles")</li>
                     <li>@Html.ActionLink("Summary", "Summary", "ParkedVehicles")</li>
-                    <li>@Html.ActionLink("Admin", "Admin", "ParkedVehicles")</li>
                 </ul>
             </div>
         </div>
@@ -31,7 +30,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Date.ToShortDateString()</p>
         </footer>
     </div>
 
