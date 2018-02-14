@@ -64,12 +64,12 @@ namespace Garage1._7.Models
 
     public enum TypeOfVehicle
     {
-        Car = 0,
-        Motorcycle = 1,
-        Bus = 2,
-        Boat = 3,
-        Airplane = 4,
-        Bicycle = 5
+        Airplane = 0,
+        Bicycle = 1,
+        Boat = 2,
+        Bus = 3,
+        Car = 4,
+        Motorcycle = 5,
 
     }
 

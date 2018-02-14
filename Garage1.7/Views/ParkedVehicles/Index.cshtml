@@ -13,13 +13,16 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Parked Vehicles";
 }
 
 <h2>
-    Garage 2.0 [@ViewBag.Capacity (@ViewBag.FreeSlots free <text>slot</text>@if (ViewBag.FreeSlots != 1)
-    {<text>s</text>})]
-    
+    @if (ViewBag.FreeSlots < 1)
+    {<text>No </text>}
+    @if (ViewBag.FreeSlots > 0) { @ViewBag.FreeSlots; }
+    free <text>slot</text>@if (ViewBag.FreeSlots != 1)
+    {<text>s</text>} (Capacity @ViewBag.Capacity)
+
 </h2>
 
 
@@ -81,22 +84,22 @@
             @Html.DisplayNameFor(model => model.First().VehicleBrand)
             @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.VehicleBrandSortParm })
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().VehicleModel)
-            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.VehicleModelSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Color)
-            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.ColorSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().TiresOnVehicle)
-            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.TiresOnVehicleSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().StartParking)
-            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.StartParkingSortParm })
-        </th>
+        <!--        <th>
+                @Html.DisplayNameFor(model => model.First().VehicleModel)
+                @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.VehicleModelSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Color)
+                @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.ColorSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TiresOnVehicle)
+                @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.TiresOnVehicleSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().StartParking)
+                @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.StartParkingSortParm })
+            </th>-->
         <th>Action</th>
     </tr>
 
@@ -111,37 +114,37 @@
 
         foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ParkingSlot)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TypeOfVehicle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VehicleRegistrationNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VehicleBrand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VehicleModel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Color)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TiresOnVehicle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartParking)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Unpark", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingSlot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfVehicle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleRegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleBrand)
+            </td>
+            <!--                <td>
+                        @Html.DisplayFor(modelItem => item.VehicleModel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TiresOnVehicle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartParking)
+                    </td>-->
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Unpark", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
         }
     }
 </table>

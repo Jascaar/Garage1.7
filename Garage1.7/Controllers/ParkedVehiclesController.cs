@@ -13,12 +13,64 @@ using PagedList.Mvc;
 
 namespace Garage1._7.Controllers
 {
+   
+
+
+
     public class ParkedVehiclesController : Controller
     {
 
         public static int Capacity = 10;
-
         private RegisterVehicleContext db = new RegisterVehicleContext();
+
+
+        public static float DoubleToFloat(double dValue)
+        {
+            if (float.IsPositiveInfinity(Convert.ToSingle(dValue)))
+            {
+                return float.MaxValue;
+            }
+            if (float.IsNegativeInfinity(Convert.ToSingle(dValue)))
+            {
+                return float.MinValue;
+            }
+            return Convert.ToSingle(dValue);
+        }
+
+        public ActionResult Summary()
+        {
+
+
+
+
+            var model = db.Garage.GroupBy(p => p.TypeOfVehicle)
+                            .Select(g => new SummaryViewModel
+                            {
+                                Name = g.Key,
+                                Count = g.Count(),
+                                SumTires = g.Sum(f => f.TiresOnVehicle),
+                                ParkingTime = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)),
+                                AccumulatedRevenue = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)*2)
+                            }).ToList();
+
+
+            return View(model);
+
+            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Capacity = Capacity;
+
+            ViewBag.NumberOfWheels = db.Garage.Sum(g => g.TiresOnVehicle);
+            ViewBag.Capacity = Capacity;
+
+            return View(model);
+
+
+        }
+
+
+
+
+
 
         // GET: ParkedVehicles
         public ActionResult Index(string searchBy, string search, int? page, string sortOrder)
@@ -272,7 +324,17 @@ namespace Garage1._7.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.timeInGarage=Math.Round((DateTime.Now-db.Garage.Find(id).StartParking).TotalHours,2);
+            //ViewBag.CurrentCost = Math.Max(Math.Round(ViewBag.timeInGarage*2*60, 0),45);
+            ViewBag.CurrentCost = Math.Round(ViewBag.timeInGarage*2*60, 0);
+            ViewBag.CurrentPricingModel = "2 SEK/minute";
+
+
+
             return View(parkedVehicle);
+
+
         }
 
         // POST: ParkedVehicles/Delete/5
@@ -295,4 +357,6 @@ namespace Garage1._7.Controllers
             base.Dispose(disposing);
         }
     }
+
+ 
 }
