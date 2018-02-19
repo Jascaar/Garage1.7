@@ -88,17 +88,17 @@ namespace Garage1._7.Controllers
             if (searchBy == "TypeOfVehicle")
             {
                 // listsearch
-                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicle.ToString().StartsWith(search)
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicle.ToString().Contains(search)
                 || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else if (searchBy == "VehicleRegistrationNumber")
             {
-                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleRegistrationNumber.StartsWith(search) 
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleRegistrationNumber.Contains(search) 
                 || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else if (searchBy == "VehicleBrand")
             {
-                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleBrand.StartsWith(search) 
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.VehicleBrand.Contains(search) 
                 || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else

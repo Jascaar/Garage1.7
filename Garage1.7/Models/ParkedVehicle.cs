@@ -14,9 +14,16 @@ namespace Garage1._7.Models
 {
     public class ParkedVehicle
     {
-
-
+        [Key]
         public int Id { get; set; }
+
+        //Navigational property
+        public virtual Member Member { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
+        
+        [Required(ErrorMessage = "Required field")]
+        public int MemberId { get; set; }
+
 
         [Range(1, 100, ErrorMessage = "Not a valid parking slot. Please choose a free slot between 1 and 100")]
         [Required(ErrorMessage = "Required field")]

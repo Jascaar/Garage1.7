@@ -258,6 +258,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
     <Compile Include="DataAccessLayer\RegisterVehicleContext.cs" />
     <Compile Include="Global.asax.cs">
