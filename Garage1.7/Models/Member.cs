@@ -20,21 +20,32 @@ namespace Garage1._7.Models
         [Required(ErrorMessage = "Required field")]
 
         [SSNValidation]
+        [RegularExpression("([0-9]{10})", ErrorMessage = "SSN Should be 10 digits and not contain letters")]
         public string SSN { get; set; }
 
-        //trimma, stor bokstav först, sedan små
-        [Required(ErrorMessage = "Required field")]
-        public string FirstName { get; set; }
 
         //trimma, stor bokstav först, sedan små
         [Required(ErrorMessage = "Required field")]
-        public string LastName { get; set; }
+        public string FirstName
+        {
+            get { return FirstName; }
+            set { value = FirstUpperCase(FirstName); }
+        }
 
+            //trimma, stor bokstav först, sedan små
+            [Required(ErrorMessage = "Required field")]
+        public string LastName
+        {
+            get { return LastName; }
+            set { value = FirstUpperCase(LastName); }
+        }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SignUpTime
         { get; set; } = DateTime.Now;
 
 
         //regex som kan hantera att inga bokstäver skrivs med, krav på +och landskod
+        [RegularExpression("([0-9])",ErrorMessage ="Mobile number should not contain letters")]
         public string Cellular { get; set; }
 
         //regex som kan hantera att det blir ett korrekt format (eller om vi använder den hantering som finns i html)
@@ -42,8 +53,11 @@ namespace Garage1._7.Models
         public string Email { get; set; }
 
         //trimma, stor bokstav först, sedan små
-        public string Street { get; set; }
-
+        public string Street
+        {
+            get { return Street; }
+            set { value = FirstUpperCase(Street); }
+        }
 
         public int StreetNumber { get; set; }
 
@@ -51,17 +65,26 @@ namespace Garage1._7.Models
 
 
         //regex, 4 siffror, inga bokstäver
-        public string OfficialApparmentNumber { get; set; }
+        //[RegularExpression("([1-9][0-9][0-9][0-9])", ErrorMessage = "Appartment number should be 4 digits without letters")]
+        [Range(1000, 9999, ErrorMessage = "Appartment number should be 4 digits without letters")]
+        public int OfficialApparmentNumber { get; set; }
 
         //hantering så att all endast 5 siffror, visa dock med mellanslag mellan 3 och 2
+        [Range(10000,99999, ErrorMessage = "Post Code Should be 5 digits")]
         public int PostCode { get; set; }
 
         //trimma, stor bokstav först, sedan små
-        public string City { get; set; }
-
+        public string City
+        {
+            get { return City; }
+            set { value = FirstUpperCase(City); }
+        }
         //trimma, stor bokstav först, sedan små
-        public string Country { get; set; }
-
+        public string Country
+        {
+            get { return Country; }
+            set { value = FirstUpperCase(Country); }
+        }
         protected Gender gender = Gender.Unknown;
 
         public Gender Gender
@@ -69,7 +92,11 @@ namespace Garage1._7.Models
             get { return gender; }
             set
             {
-                gender = GetGender(SSN);
+                //gender = GetGender(SSN);
+                if ((int)SSN[8]/2==0) {
+                    gender = Gender.Male;
+                }
+                else gender = Gender.Female;
 
             }
         }
@@ -82,6 +109,15 @@ namespace Garage1._7.Models
         {
             return Gender.Unknown;  //The gender is indicated by the third digit, even for women, odd for men. 
         }
+        protected string FirstUpperCase(string value)
+        {
+            value = value.Trim().ToLower();
+            if (value.Length > 1)
+                return value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1);
+            if (value.Length == 0)
+                return "";
+            else return value.Substring(0, 1).ToUpper();
+        }
     }
 
     
@@ -91,7 +127,7 @@ namespace Garage1._7.Models
         Female = 1,
         Unknown = 2,
     }
-
+   
 
     public class SSNValidation : ValidationAttribute
     {
@@ -99,7 +135,21 @@ namespace Garage1._7.Models
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            return new ValidationResult("Not a valid Swedish vehicle registration number");
+            var validationValue = (string)value;
+            int CheckSum = 0;
+            for (int i = 0; i < 9; i=i+2)
+            {
+                if (i != 8) CheckSum +=validationValue[i+1];
+                if (validationValue[i] * 2 < 10)
+                    CheckSum += validationValue[i] * 2;
+                else CheckSum += validationValue[i] * 2-9;
+                
+        }
+            decimal checkSumRoof = Math.Ceiling((decimal)CheckSum/10)*10;
+            int controlNumber = Convert.ToInt32(checkSumRoof) -CheckSum;
+
+            if (validationValue[9]==controlNumber) return ValidationResult.Success;
+                else return new ValidationResult("Not a valid Swedish vehicle registration number");
         }
 
     }
