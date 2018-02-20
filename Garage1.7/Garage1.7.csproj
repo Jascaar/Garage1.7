@@ -258,84 +258,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
+    <Compile Include="Migrations\201802200842394_aaa.cs" />
+    <Compile Include="Migrations\201802200842394_aaa.Designer.cs">
+      <DependentUpon>201802200842394_aaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802200848491_aaa1.cs" />
+    <Compile Include="Migrations\201802200848491_aaa1.Designer.cs">
+      <DependentUpon>201802200848491_aaa1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
     <Compile Include="DataAccessLayer\RegisterVehicleContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802091301138_Garage.cs" />
-    <Compile Include="Migrations\201802091301138_Garage.Designer.cs">
-      <DependentUpon>201802091301138_Garage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802091529232_garage2.cs" />
-    <Compile Include="Migrations\201802091529232_garage2.Designer.cs">
-      <DependentUpon>201802091529232_garage2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802120930027_Registration number validation.cs" />
-    <Compile Include="Migrations\201802120930027_Registration number validation.Designer.cs">
-      <DependentUpon>201802120930027_Registration number validation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121023391_Validators2.cs" />
-    <Compile Include="Migrations\201802121023391_Validators2.Designer.cs">
-      <DependentUpon>201802121023391_Validators2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121037296_Tester.cs" />
-    <Compile Include="Migrations\201802121037296_Tester.Designer.cs">
-      <DependentUpon>201802121037296_Tester.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121204415_Model.cs" />
-    <Compile Include="Migrations\201802121204415_Model.Designer.cs">
-      <DependentUpon>201802121204415_Model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121242497_DB UPDATE.cs" />
-    <Compile Include="Migrations\201802121242497_DB UPDATE.Designer.cs">
-      <DependentUpon>201802121242497_DB UPDATE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121310480_parkingSlot.cs" />
-    <Compile Include="Migrations\201802121310480_parkingSlot.Designer.cs">
-      <DependentUpon>201802121310480_parkingSlot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121355418_parkingSlot2.cs" />
-    <Compile Include="Migrations\201802121355418_parkingSlot2.Designer.cs">
-      <DependentUpon>201802121355418_parkingSlot2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121357541_parkingSlot3.cs" />
-    <Compile Include="Migrations\201802121357541_parkingSlot3.Designer.cs">
-      <DependentUpon>201802121357541_parkingSlot3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121428220_parkingSlot4.cs" />
-    <Compile Include="Migrations\201802121428220_parkingSlot4.Designer.cs">
-      <DependentUpon>201802121428220_parkingSlot4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121503197_parkingSlot5.cs" />
-    <Compile Include="Migrations\201802121503197_parkingSlot5.Designer.cs">
-      <DependentUpon>201802121503197_parkingSlot5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802130838449_parkingSlot6.cs" />
-    <Compile Include="Migrations\201802130838449_parkingSlot6.Designer.cs">
-      <DependentUpon>201802130838449_parkingSlot6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802130922036_parkingSlot7.cs" />
-    <Compile Include="Migrations\201802130922036_parkingSlot7.Designer.cs">
-      <DependentUpon>201802130922036_parkingSlot7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802131214174_Rnr1.cs" />
-    <Compile Include="Migrations\201802131214174_Rnr1.Designer.cs">
-      <DependentUpon>201802131214174_Rnr1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802131217169_Rnr2.cs" />
-    <Compile Include="Migrations\201802131217169_Rnr2.Designer.cs">
-      <DependentUpon>201802131217169_Rnr2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802131505595_test.cs" />
-    <Compile Include="Migrations\201802131505595_test.Designer.cs">
-      <DependentUpon>201802131505595_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802131525401_test1.cs" />
-    <Compile Include="Migrations\201802131525401_test1.Designer.cs">
-      <DependentUpon>201802131525401_test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
@@ -402,59 +338,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802091301138_Garage.resx">
-      <DependentUpon>201802091301138_Garage.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802200842394_aaa.resx">
+      <DependentUpon>201802200842394_aaa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802091529232_garage2.resx">
-      <DependentUpon>201802091529232_garage2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802120930027_Registration number validation.resx">
-      <DependentUpon>201802120930027_Registration number validation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121023391_Validators2.resx">
-      <DependentUpon>201802121023391_Validators2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121037296_Tester.resx">
-      <DependentUpon>201802121037296_Tester.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121204415_Model.resx">
-      <DependentUpon>201802121204415_Model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121242497_DB UPDATE.resx">
-      <DependentUpon>201802121242497_DB UPDATE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121310480_parkingSlot.resx">
-      <DependentUpon>201802121310480_parkingSlot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121355418_parkingSlot2.resx">
-      <DependentUpon>201802121355418_parkingSlot2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121357541_parkingSlot3.resx">
-      <DependentUpon>201802121357541_parkingSlot3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121428220_parkingSlot4.resx">
-      <DependentUpon>201802121428220_parkingSlot4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121503197_parkingSlot5.resx">
-      <DependentUpon>201802121503197_parkingSlot5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802130838449_parkingSlot6.resx">
-      <DependentUpon>201802130838449_parkingSlot6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802130922036_parkingSlot7.resx">
-      <DependentUpon>201802130922036_parkingSlot7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802131214174_Rnr1.resx">
-      <DependentUpon>201802131214174_Rnr1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802131217169_Rnr2.resx">
-      <DependentUpon>201802131217169_Rnr2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802131505595_test.resx">
-      <DependentUpon>201802131505595_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802131525401_test1.resx">
-      <DependentUpon>201802131525401_test1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802200848491_aaa1.resx">
+      <DependentUpon>201802200848491_aaa1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,21 +23,21 @@ namespace Garage1._7.Models
         [RegularExpression("([0-9]{10})", ErrorMessage = "SSN Should be 10 digits and not contain letters")]
         public string SSN { get; set; }
 
-
+        public string firstName { get; set; }
         //trimma, stor bokstav först, sedan små
         [Required(ErrorMessage = "Required field")]
         public string FirstName
         {
-            get { return FirstName; }
-            set { value = FirstUpperCase(FirstName); }
+            get { return firstName; }
+            set { firstName = FirstUpperCase(value); }
         }
-
-            //trimma, stor bokstav först, sedan små
-            [Required(ErrorMessage = "Required field")]
+        public string lastName { get; set; }
+                                           //trimma, stor bokstav först, sedan små
+        [Required(ErrorMessage = "Required field")]
         public string LastName
         {
-            get { return LastName; }
-            set { value = FirstUpperCase(LastName); }
+            get { return lastName; }
+            set { lastName = FirstUpperCase(value); }
         }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SignUpTime
@@ -45,20 +45,21 @@ namespace Garage1._7.Models
 
 
         //regex som kan hantera att inga bokstäver skrivs med, krav på +och landskod
-        [RegularExpression("([0-9])",ErrorMessage ="Mobile number should not contain letters")]
+        [RegularExpression("([0-9]{10})",ErrorMessage ="Mobile number should not contain letters")]
         public string Cellular { get; set; }
 
         //regex som kan hantera att det blir ett korrekt format (eller om vi använder den hantering som finns i html)
         [Required(ErrorMessage = "Required field")]
         public string Email { get; set; }
-
+        public string street { get; set; }
         //trimma, stor bokstav först, sedan små
         public string Street
         {
-            get { return Street; }
-            set { value = FirstUpperCase(Street); }
+            get { return street; }
+            set { street = FirstUpperCase(value); }
         }
 
+        [RegularExpression("([0-9]{2})", ErrorMessage = "Please enter correct street number")]
         public int StreetNumber { get; set; }
 
         public char StreetNumberAppendix { get; set; }
@@ -72,18 +73,19 @@ namespace Garage1._7.Models
         //hantering så att all endast 5 siffror, visa dock med mellanslag mellan 3 och 2
         [Range(10000,99999, ErrorMessage = "Post Code Should be 5 digits")]
         public int PostCode { get; set; }
-
+        public string city { get; set; }
         //trimma, stor bokstav först, sedan små
         public string City
         {
-            get { return City; }
-            set { value = FirstUpperCase(City); }
+            get { return city; }
+            set { city = FirstUpperCase(value); }
         }
+        public string country { get; set; }
         //trimma, stor bokstav först, sedan små
         public string Country
         {
-            get { return Country; }
-            set { value = FirstUpperCase(Country); }
+            get { return country; }
+            set { country = FirstUpperCase(value); }
         }
         protected Gender gender = Gender.Unknown;
 
@@ -135,22 +137,32 @@ namespace Garage1._7.Models
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var validationValue = (string)value;
+            var validationValue = int.Parse((string)value);
+            List<int> PN = new List<int>();
+            int j = 1000000000;
+            int f = 0;
+            while (j>10)
+            {
+                PN[f] = validationValue / j;
+                j = j / 10;
+                f++;
+            }
+
             int CheckSum = 0;
             for (int i = 0; i < 9; i=i+2)
             {
-                if (Convert.ToInt32(validationValue[i]) * 2 < 10)
-                    CheckSum += Convert.ToInt32(validationValue[i]) * 2;
-                else CheckSum += (Convert.ToInt32(validationValue[i]) * 2) - 9;
+                if (validationValue * 2 < 10)
+                    CheckSum += validationValue * 2;
+                else CheckSum +=( validationValue * 2) - 9;
 
-                if (i != 8) CheckSum +=Convert.ToInt32(validationValue[i+1]);
+                if (i != 8) CheckSum +=validationValue;
                 
                 
             }
             decimal checkSumRoof = Math.Ceiling((decimal)CheckSum/10)*10;
             int controlNumber = Convert.ToInt32(checkSumRoof) -CheckSum;
 
-            if (Convert.ToInt32(validationValue[9])==controlNumber) return ValidationResult.Success;
+            if (Convert.ToInt32((string)value[9])==controlNumber) return ValidationResult.Success;
                 else return new ValidationResult("Not a valid Swedish vehicle registration number");
         }
 
