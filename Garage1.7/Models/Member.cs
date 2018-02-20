@@ -20,6 +20,7 @@ namespace Garage1._7.Models
         [Required(ErrorMessage = "Required field")]
         [SSNValidation]
         [RegularExpression(@"^(\d{6}|\d{8})[-\s]?\d{4}$", ErrorMessage = "Please use YYMMDD-XXXX or YYYYMMDD-XXXX formatting")]
+        [DisplayName("Social security number")]
         public string SSN
         {
             get
@@ -36,7 +37,7 @@ namespace Garage1._7.Models
                     var yearLastCentury = (DateTime.Now.Year - 100).ToString().Substring(0, 2) + value.Substring(0, 2);
                     string year = "";
 
-                    if (DateTime.Now.Year - Int32.Parse(yearLastCentury) < 118 && DateTime.Now.Year - Int32.Parse(yearLastCentury) >= 18)
+                    if (DateTime.Now.Year - Int32.Parse(yearLastCentury) < 115 && DateTime.Now.Year - Int32.Parse(yearLastCentury) >= 15)
                     { year = yearLastCentury; }
                     else year = yearThisCentury;
 
@@ -52,14 +53,16 @@ namespace Garage1._7.Models
 
         [Required(ErrorMessage = "Required field")]
         protected string firstName;
+        [DisplayName("First Name")]
         public string FirstName
         {
             get { return firstName; }
             set { firstName = FirstUpperCase(value); }
         }
-        
+
         protected string lastName;
         [Required(ErrorMessage = "Required field")]
+        [DisplayName("Surname")]
         public string LastName
         {
             get { return lastName; }
@@ -67,17 +70,21 @@ namespace Garage1._7.Models
         }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayName("Sign-up time")]
         public DateTime SignUpTime
         { get; set; } = DateTime.Now;
 
 
         [RegularExpression("(^[0-9]{1,45}$)", ErrorMessage = "Mobile number should not contain letters or be more than 45 digits long")]
+        [DisplayName("Cell phone number")]
         public string Cellular { get; set; }
 
         [Required(ErrorMessage = "Required field")]
+        [DisplayName("Email address")]
         public string Email { get; set; }
 
         protected string street;
+        [DisplayName("Street name")]
         public string Street
         {
             get { return street; }
@@ -86,17 +93,27 @@ namespace Garage1._7.Models
 
 
         [Range(1, int.MaxValue, ErrorMessage = "Only positive integers >0 are valid")]
+        [DisplayName("Street number")]
         public int StreetNumber { get; set; }
 
+        [DisplayName("Street number appendix")]
         public char StreetNumberAppendix { get; set; }
 
 
-        [Range(1000, 9999, ErrorMessage = "Appartment number should be 4 digits without letters")]
-        public int OfficialApparmentNumber { get; set; }
+        [RegularExpression("(^[0-9]{4}$)", ErrorMessage = "Official apparment numbers are always 4 digits")]
+        [DisplayName("Official appartment number")]
+//rename this field!
+        public string OfficialApparmentNumber { get; set; }
 
+        protected string postCode;
         //hantering så att all endast 5 siffror, visa dock med mellanslag mellan 3 och 2
-        [Range(10000, 99999, ErrorMessage = "Post Code Should be 5 digits")]
-        public int PostCode { get; set; }
+        [Range(00000, 99999, ErrorMessage = "Post Code Should be 5 digits")]
+        public string PostCode {
+            get { return postCode; }
+            set {
+                postCode = value.ToString().Substring(0, 3) + " " + value.ToString().Substring(3, 2);
+            }
+        }
 
         protected string city;
         public string City

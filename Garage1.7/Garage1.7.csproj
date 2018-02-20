@@ -353,6 +353,26 @@
     <Compile Include="Migrations\201802200928065_SSN81.Designer.cs">
       <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802200953162_SSN9.cs" />
+    <Compile Include="Migrations\201802200953162_SSN9.Designer.cs">
+      <DependentUpon>201802200953162_SSN9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201011346_AppartmentNumber.cs" />
+    <Compile Include="Migrations\201802201011346_AppartmentNumber.Designer.cs">
+      <DependentUpon>201802201011346_AppartmentNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201015326_AppartmentNumber1.cs" />
+    <Compile Include="Migrations\201802201015326_AppartmentNumber1.Designer.cs">
+      <DependentUpon>201802201015326_AppartmentNumber1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201016446_AppartmentNumber2.cs" />
+    <Compile Include="Migrations\201802201016446_AppartmentNumber2.Designer.cs">
+      <DependentUpon>201802201016446_AppartmentNumber2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802201020260_AppartmentNumber10.cs" />
+    <Compile Include="Migrations\201802201020260_AppartmentNumber10.Designer.cs">
+      <DependentUpon>201802201020260_AppartmentNumber10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
@@ -508,6 +528,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802200928065_SSN81.resx">
       <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802200953162_SSN9.resx">
+      <DependentUpon>201802200953162_SSN9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201011346_AppartmentNumber.resx">
+      <DependentUpon>201802201011346_AppartmentNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201015326_AppartmentNumber1.resx">
+      <DependentUpon>201802201015326_AppartmentNumber1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201016446_AppartmentNumber2.resx">
+      <DependentUpon>201802201016446_AppartmentNumber2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201020260_AppartmentNumber10.resx">
+      <DependentUpon>201802201020260_AppartmentNumber10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
