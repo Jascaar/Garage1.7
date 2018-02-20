@@ -139,16 +139,18 @@ namespace Garage1._7.Models
             int CheckSum = 0;
             for (int i = 0; i < 9; i=i+2)
             {
-                if (i != 8) CheckSum +=validationValue[i+1];
-                if (validationValue[i] * 2 < 10)
-                    CheckSum += validationValue[i] * 2;
-                else CheckSum += validationValue[i] * 2-9;
+                if (Convert.ToInt32(validationValue[i]) * 2 < 10)
+                    CheckSum += Convert.ToInt32(validationValue[i]) * 2;
+                else CheckSum += (Convert.ToInt32(validationValue[i]) * 2) - 9;
+
+                if (i != 8) CheckSum +=Convert.ToInt32(validationValue[i+1]);
                 
-        }
+                
+            }
             decimal checkSumRoof = Math.Ceiling((decimal)CheckSum/10)*10;
             int controlNumber = Convert.ToInt32(checkSumRoof) -CheckSum;
 
-            if (validationValue[9]==controlNumber) return ValidationResult.Success;
+            if (Convert.ToInt32(validationValue[9])==controlNumber) return ValidationResult.Success;
                 else return new ValidationResult("Not a valid Swedish vehicle registration number");
         }
 
