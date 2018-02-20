@@ -32,8 +32,8 @@ namespace Garage1._7.Models
 
                 if (value.Length == 10)
                 {
-                    var yearThisCentury = (DateTime.Now.Year).ToString().Substring(2, 2)+ value.Substring(0, 2);
-                    var yearLastCentury = (DateTime.Now.Year - 100).ToString().Substring(2, 2) + value.Substring(0, 2);
+                    var yearThisCentury = (DateTime.Now.Year).ToString().Substring(0, 2)+ value.Substring(0, 2);
+                    var yearLastCentury = (DateTime.Now.Year - 100).ToString().Substring(0, 2) + value.Substring(0, 2);
                     string year = "";
 
                     if (DateTime.Now.Year - Int32.Parse(yearLastCentury) < 118 && DateTime.Now.Year - Int32.Parse(yearLastCentury) >= 18)
@@ -44,7 +44,7 @@ namespace Garage1._7.Models
             }
 
                 else 
-                    ssn = value.Substring(0, 8) + "-" + value.Substring(6, 4);
+                    ssn = value.Substring(0, 8) + "-" + value.Substring(8, 4);
 
             }
         }

@@ -345,6 +345,14 @@
     <Compile Include="Migrations\201802200907181_SSN8.Designer.cs">
       <DependentUpon>201802200907181_SSN8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802200925549_SSN71.cs" />
+    <Compile Include="Migrations\201802200925549_SSN71.Designer.cs">
+      <DependentUpon>201802200925549_SSN71.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802200928065_SSN81.cs" />
+    <Compile Include="Migrations\201802200928065_SSN81.Designer.cs">
+      <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
@@ -494,6 +502,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802200907181_SSN8.resx">
       <DependentUpon>201802200907181_SSN8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802200925549_SSN71.resx">
+      <DependentUpon>201802200925549_SSN71.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802200928065_SSN81.resx">
+      <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
