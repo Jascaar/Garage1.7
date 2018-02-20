@@ -13,5 +13,9 @@ namespace Garage1._7.DataAcessLayer
 
         }
         public DbSet<Models.ParkedVehicle> Garage { get; set; }
+
+        public System.Data.Entity.DbSet<Garage1._7.Models.Member> Members { get; set; }
+
+        public System.Data.Entity.DbSet<Garage1._7.Models.VehicleType> VehicleTypes { get; set; }
     }
 }

@@ -27,20 +27,29 @@ namespace Garage1._7.Models
             set
             {
                 value = value.Trim().ToLower();
-                if (value.Length > 1)
-                    typeOfVehicle = value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1);
                 if (value.Length == 0)
                     typeOfVehicle = "";
                 else typeOfVehicle = value.Substring(0, 1).ToUpper();
+                if (value.Length > 1)
+                    typeOfVehicle = value.Substring(0, 1).ToUpper() + value.Substring(1, value.Length - 1);
             }
         }
         [Range(1, int.MaxValue,ErrorMessage = "Only positive integers are valid")]
         [Required(ErrorMessage = "Required field")]
-        public decimal SpacesNeededDividend { get; set; }
+        public int SpacesNeededDividend { get; set; }
         [Required(ErrorMessage = "Required field")]
         [Range(1, int.MaxValue, ErrorMessage = "Only positive integers are valid")]
-        public decimal SpacesNeededDivisor { get; set; }
-        public decimal SpacesNeeded { get; protected set; }   //write this code later to set the value to (SpacesNeededDividend/SpacesNeededDivisor)
+        public int SpacesNeededDivisor { get; set; }
+        protected decimal spacesNeeded;
+        public decimal SpacesNeeded
+        {
+            get { return spacesNeeded; }
+            protected set
+            {
+                spacesNeeded =
+     (decimal)SpacesNeededDividend / (decimal)SpacesNeededDivisor;
+            }
+        }
 
         //navigational property
         public virtual ICollection<ParkedVehicle> ParkedVehicles { get; set; }
