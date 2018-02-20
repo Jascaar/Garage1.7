@@ -261,98 +261,15 @@
     <Compile Include="Controllers\ParkedVehicles2Controller.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="Controllers\VehicleTypesController.cs" />
-    <Compile Include="Migrations\201802191415257_Potatoesghssd.cs" />
-    <Compile Include="Migrations\201802191415257_Potatoesghssd.Designer.cs">
-      <DependentUpon>201802191415257_Potatoesghssd.cs</DependentUpon>
+    <Compile Include="Migrations\201802200959127_sss.cs" />
+    <Compile Include="Migrations\201802200959127_sss.Designer.cs">
+      <DependentUpon>201802200959127_sss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802191420520_Potatoesghssdsds.cs" />
-    <Compile Include="Migrations\201802191420520_Potatoesghssdsds.Designer.cs">
-      <DependentUpon>201802191420520_Potatoesghssdsds.cs</DependentUpon>
+    <Compile Include="Migrations\201802201135488_ss.cs" />
+    <Compile Include="Migrations\201802201135488_ss.Designer.cs">
+      <DependentUpon>201802201135488_ss.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802191423309_Potatoesghssdsdssdsd.cs" />
-    <Compile Include="Migrations\201802191423309_Potatoesghssdsdssdsd.Designer.cs">
-      <DependentUpon>201802191423309_Potatoesghssdsdssdsd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191439501_Potatoesghssdsdssdsdfdf.cs" />
-    <Compile Include="Migrations\201802191439501_Potatoesghssdsdssdsdfdf.Designer.cs">
-      <DependentUpon>201802191439501_Potatoesghssdsdssdsdfdf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191449125_Potatoesghssdsdssdsdfdfsd.cs" />
-    <Compile Include="Migrations\201802191449125_Potatoesghssdsdssdsdfdfsd.Designer.cs">
-      <DependentUpon>201802191449125_Potatoesghssdsdssdsdfdfsd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191451332_Potatoesghssdsdssdsdfdfsdas.cs" />
-    <Compile Include="Migrations\201802191451332_Potatoesghssdsdssdsdfdfsdas.Designer.cs">
-      <DependentUpon>201802191451332_Potatoesghssdsdssdsdfdfsdas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191505443_Potatoesghssdsdssdsdfdfsdasss.cs" />
-    <Compile Include="Migrations\201802191505443_Potatoesghssdsdssdsdfdfsdasss.Designer.cs">
-      <DependentUpon>201802191505443_Potatoesghssdsdssdsdfdfsdasss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191508356_Potatoesghssdsdssdsdfdfsdassssdsd.cs" />
-    <Compile Include="Migrations\201802191508356_Potatoesghssdsdssdsdfdfsdassssdsd.Designer.cs">
-      <DependentUpon>201802191508356_Potatoesghssdsdssdsdfdfsdassssdsd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802191510314_Potatoesghssdsdssdsdfdfsdassssdsds.cs" />
-    <Compile Include="Migrations\201802191510314_Potatoesghssdsdssdsdfdfsdassssdsds.Designer.cs">
-      <DependentUpon>201802191510314_Potatoesghssdsdssdsdfdfsdassssdsds.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200707283_asfaf.cs" />
-    <Compile Include="Migrations\201802200707283_asfaf.Designer.cs">
-      <DependentUpon>201802200707283_asfaf.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200715272_asfafkj.cs" />
-    <Compile Include="Migrations\201802200715272_asfafkj.Designer.cs">
-      <DependentUpon>201802200715272_asfafkj.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200724020_SSN.cs" />
-    <Compile Include="Migrations\201802200724020_SSN.Designer.cs">
-      <DependentUpon>201802200724020_SSN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200732305_SSN2.cs" />
-    <Compile Include="Migrations\201802200732305_SSN2.Designer.cs">
-      <DependentUpon>201802200732305_SSN2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200746512_SSN3.cs" />
-    <Compile Include="Migrations\201802200746512_SSN3.Designer.cs">
-      <DependentUpon>201802200746512_SSN3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200843214_SSN4.cs" />
-    <Compile Include="Migrations\201802200843214_SSN4.Designer.cs">
-      <DependentUpon>201802200843214_SSN4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200846267_SSN5.cs" />
-    <Compile Include="Migrations\201802200846267_SSN5.Designer.cs">
-      <DependentUpon>201802200846267_SSN5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200853472_SSN51.cs" />
-    <Compile Include="Migrations\201802200853472_SSN51.Designer.cs">
-      <DependentUpon>201802200853472_SSN51.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200854086_SSN52.cs" />
-    <Compile Include="Migrations\201802200854086_SSN52.Designer.cs">
-      <DependentUpon>201802200854086_SSN52.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200901542_SSN6.cs" />
-    <Compile Include="Migrations\201802200901542_SSN6.Designer.cs">
-      <DependentUpon>201802200901542_SSN6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200905036_SSN7.cs" />
-    <Compile Include="Migrations\201802200905036_SSN7.Designer.cs">
-      <DependentUpon>201802200905036_SSN7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200907181_SSN8.cs" />
-    <Compile Include="Migrations\201802200907181_SSN8.Designer.cs">
-      <DependentUpon>201802200907181_SSN8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200925549_SSN71.cs" />
-    <Compile Include="Migrations\201802200925549_SSN71.Designer.cs">
-      <DependentUpon>201802200925549_SSN71.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802200928065_SSN81.cs" />
-    <Compile Include="Migrations\201802200928065_SSN81.Designer.cs">
-      <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\GarageContext.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
@@ -440,74 +357,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802191415257_Potatoesghssd.resx">
-      <DependentUpon>201802191415257_Potatoesghssd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802200959127_sss.resx">
+      <DependentUpon>201802200959127_sss.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191420520_Potatoesghssdsds.resx">
-      <DependentUpon>201802191420520_Potatoesghssdsds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191423309_Potatoesghssdsdssdsd.resx">
-      <DependentUpon>201802191423309_Potatoesghssdsdssdsd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191439501_Potatoesghssdsdssdsdfdf.resx">
-      <DependentUpon>201802191439501_Potatoesghssdsdssdsdfdf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191449125_Potatoesghssdsdssdsdfdfsd.resx">
-      <DependentUpon>201802191449125_Potatoesghssdsdssdsdfdfsd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191451332_Potatoesghssdsdssdsdfdfsdas.resx">
-      <DependentUpon>201802191451332_Potatoesghssdsdssdsdfdfsdas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191505443_Potatoesghssdsdssdsdfdfsdasss.resx">
-      <DependentUpon>201802191505443_Potatoesghssdsdssdsdfdfsdasss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191508356_Potatoesghssdsdssdsdfdfsdassssdsd.resx">
-      <DependentUpon>201802191508356_Potatoesghssdsdssdsdfdfsdassssdsd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802191510314_Potatoesghssdsdssdsdfdfsdassssdsds.resx">
-      <DependentUpon>201802191510314_Potatoesghssdsdssdsdfdfsdassssdsds.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200707283_asfaf.resx">
-      <DependentUpon>201802200707283_asfaf.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200715272_asfafkj.resx">
-      <DependentUpon>201802200715272_asfafkj.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200724020_SSN.resx">
-      <DependentUpon>201802200724020_SSN.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200732305_SSN2.resx">
-      <DependentUpon>201802200732305_SSN2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200746512_SSN3.resx">
-      <DependentUpon>201802200746512_SSN3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200843214_SSN4.resx">
-      <DependentUpon>201802200843214_SSN4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200846267_SSN5.resx">
-      <DependentUpon>201802200846267_SSN5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200853472_SSN51.resx">
-      <DependentUpon>201802200853472_SSN51.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200854086_SSN52.resx">
-      <DependentUpon>201802200854086_SSN52.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200901542_SSN6.resx">
-      <DependentUpon>201802200901542_SSN6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200905036_SSN7.resx">
-      <DependentUpon>201802200905036_SSN7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200907181_SSN8.resx">
-      <DependentUpon>201802200907181_SSN8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200925549_SSN71.resx">
-      <DependentUpon>201802200925549_SSN71.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802200928065_SSN81.resx">
-      <DependentUpon>201802200928065_SSN81.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802201135488_ss.resx">
+      <DependentUpon>201802201135488_ss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ using Garage1._7.DataAcessLayer;
 namespace Garage1._7.Models
 {
     public class ParkedVehicle
-    {
+    {        
         [Key]
         public int Id { get; set; }
 
@@ -23,16 +23,13 @@ namespace Garage1._7.Models
         
         [Required(ErrorMessage = "Required field")]
         public int MemberId { get; set; }
-
+        public int TypeOfVehicleId { get; set; }
 
         [Range(1, 100, ErrorMessage = "Not a valid parking slot. Please choose a free slot between 1 and 100")]
         [Required(ErrorMessage = "Required field")]
         public int ParkingSlot { get; set; }
-
-        [DisplayName("Vehicle type")]
-        [Required(ErrorMessage = "Required field")]
-        public TypeOfVehicle TypeOfVehicle { get; set; }
-
+             
+        
         string vehicleRegistrationNumber;
 
         [DisplayName("Registration number")]
@@ -79,7 +76,7 @@ namespace Garage1._7.Models
         Motorcycle = 5,
 
     }
-
+    
 
     public class RNValidation : ValidationAttribute
     {

@@ -7,13 +7,13 @@ namespace Garage1._7.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Potatoesghssdsds : IMigrationMetadata
+    public sealed partial class sss : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Potatoesghssdsds));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(sss));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802191420520_Potatoesghssdsds"; }
+            get { return "201802200959127_sss"; }
         }
         
         string IMigrationMetadata.Source

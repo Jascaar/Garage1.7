@@ -23,41 +23,41 @@ namespace Garage1._7.Controllers
         public static int Capacity = 35;
         private RegisterVehicleContext db = new RegisterVehicleContext();
 
-        public ActionResult Summary()
-        {
+        //public ActionResult Summary()
+        //{
 
 
 
 
-            var model = db.Garage.GroupBy(p => p.TypeOfVehicle)
-                            .Select(g => new SummaryViewModel
-                            {
-                                Name = g.Key,
-                                Count = g.Count(),
-                                SumTires = g.Sum(f => f.TiresOnVehicle),
-                                ParkingTime = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)),
-                                AccumulatedRevenue = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)*2)
-                            }).ToList();
+        //    var model = db.Garage.GroupBy(p => p.TypeOfVehicle)
+        //                    .Select(g => new SummaryViewModel
+        //                    {
+        //                        Name = g.Key,
+        //                        Count = g.Count(),
+        //                        SumTires = g.Sum(f => f.TiresOnVehicle),
+        //                        ParkingTime = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)),
+        //                        AccumulatedRevenue = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now)*2)
+        //                    }).ToList();
 
 
 
-            ;
+        //    ;
 
 
 
 
-            return View(model);
+        //    return View(model);
 
-            ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
-            ViewBag.Capacity = Capacity;
+        //    ViewBag.FreeSlots = Capacity - db.Garage.Where(g => (g.ParkingSlot > 0)).Count();
+        //    ViewBag.Capacity = Capacity;
 
-            ViewBag.NumberOfWheels = db.Garage.Sum(g => g.TiresOnVehicle);
-            ViewBag.Capacity = Capacity;
+        //    ViewBag.NumberOfWheels = db.Garage.Sum(g => g.TiresOnVehicle);
+        //    ViewBag.Capacity = Capacity;
 
-            return View(model);
+        //    return View(model);
 
 
-        }
+        //}
 
 
 
@@ -88,7 +88,7 @@ namespace Garage1._7.Controllers
             if (searchBy == "TypeOfVehicle")
             {
                 // listsearch
-                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicle.ToString().Contains(search)
+                return View(db.Garage.OrderBy(v => v.ParkingSlot).Where(v => v.TypeOfVehicleId.ToString().Contains(search)
                 || search == null).ToList().ToPagedList(page ?? 1,10));
             }
             else if (searchBy == "VehicleRegistrationNumber")
@@ -119,10 +119,10 @@ namespace Garage1._7.Controllers
                         break;
 
                 case "TypeOfVehicle_desc":
-                    vehicles = vehicles.OrderByDescending(s => s.TypeOfVehicle);
+                    vehicles = vehicles.OrderByDescending(s => s.TypeOfVehicleId);
                     break;
                 case "TypeOfVehicle":
-                    vehicles = vehicles.OrderBy(s => s.TypeOfVehicle);
+                    vehicles = vehicles.OrderBy(s => s.TypeOfVehicleId);
                     break;
                     case "VehicleBrand_desc":
                         vehicles = vehicles.OrderByDescending(s => s.VehicleBrand);
